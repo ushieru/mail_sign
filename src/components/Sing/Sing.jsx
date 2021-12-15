@@ -33,31 +33,31 @@ const Sign = ({ data }) => <>
                     {
                       data.mobile &&
                       <a href={`tel:${data.mobile}`} target='_blank' className='icon-link' >
-                        <img className='icon' src='public/call.png' alt="cellphone" />
+                        <img className='icon' src='/call.png' alt="cellphone" />
                       </a>
                     }
                     {
                       data.web &&
                       <a href={data.web} target='_blank' className='icon-link' >
-                        <img className='icon' src='public/web.png' alt="web" />
+                        <img className='icon' src='/web.png' alt="web" />
                       </a>
                     }
                     {
                       data.github &&
                       <a href={`https://github.com/${data.github}`} target='_blank' className='icon-link' >
-                        <img className='icon' src='public/github.png' alt="github" />
+                        <img className='icon' src='/github.png' alt="github" />
                       </a>
                     }
                     {
                       data.linkedin &&
                       <a href={`https://www.linkedin.com/in/${data.linkedin}/`} target='_blank' className='icon-link' >
-                        <img className='icon' src='public/linkedin.png' alt="linkedin" />
+                        <img className='icon' src='/linkedin.png' alt="linkedin" />
                       </a>
                     }
                     {
                       data.telegram &&
                       <a href={`https://t.me/${data.telegram}`} target='_blank' className='icon-link' >
-                        <img className='icon' src='public/telegram.png' alt="telegram" />
+                        <img className='icon' src='/telegram.png' alt="telegram" />
                       </a>
                     }
                   </td>
