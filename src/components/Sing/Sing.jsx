@@ -38,13 +38,13 @@ const Sign = ({ data }) => <>
                     {
                       data.mobile &&
                       <a href={`tel:${data.mobile}`} target='_blank' className='icon-link' >
-                        <img className='icon' src={call} alt="github" />
+                        <img className='icon' src={call} alt="cellphone" />
                       </a>
                     }
                     {
                       data.web &&
                       <a href={data.web} target='_blank' className='icon-link' >
-                        <img className='icon' src={web} alt="github" />
+                        <img className='icon' src={web} alt="web" />
                       </a>
                     }
                     {
