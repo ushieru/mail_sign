@@ -20,9 +20,11 @@ const Sign = ({ data }) => {
         <td
           style={{
             width: '90px',
+            borderColor: 'rgb(209, 213, 219)',
             borderTopWidth: '1px',
             borderBottomWidth: '1px',
-            borderLeftWidth: '1px'
+            borderLeftWidth: '1px',
+            borderStyle: 'solid',
           }}
         >
           {data.image ?
@@ -55,10 +57,12 @@ const Sign = ({ data }) => {
         <td
           style={{
             width: '210px',
+            borderColor: 'rgb(209, 213, 219)',
             borderTopWidth: '1px',
             borderBottomWidth: '1px',
             borderRightWidth: '1px',
             paddingRight: '12px',
+            borderStyle: 'solid',
           }}
         >
           <table>
