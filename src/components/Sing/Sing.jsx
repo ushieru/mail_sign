@@ -1,9 +1,4 @@
 import './styles.css'
-import github from './../../assets/github-icon.svg'
-import linkedin from './../../assets/linkedin-icon.svg'
-import telegram from './../../assets/telegram.svg'
-import web from './../../assets/web.svg'
-import call from './../../assets/call.svg'
 
 const Sign = ({ data }) => <>
   <table
@@ -38,31 +33,31 @@ const Sign = ({ data }) => <>
                     {
                       data.mobile &&
                       <a href={`tel:${data.mobile}`} target='_blank' className='icon-link' >
-                        <img className='icon' src={call} alt="cellphone" />
+                        <img className='icon' src='public/call.png' alt="cellphone" />
                       </a>
                     }
                     {
                       data.web &&
                       <a href={data.web} target='_blank' className='icon-link' >
-                        <img className='icon' src={web} alt="web" />
+                        <img className='icon' src='public/web.png' alt="web" />
                       </a>
                     }
                     {
                       data.github &&
                       <a href={`https://github.com/${data.github}`} target='_blank' className='icon-link' >
-                        <img className='icon' src={github} alt="github" />
+                        <img className='icon' src='public/github.png' alt="github" />
                       </a>
                     }
                     {
                       data.linkedin &&
                       <a href={`https://www.linkedin.com/in/${data.linkedin}/`} target='_blank' className='icon-link' >
-                        <img className='icon' src={linkedin} alt="linkedin" />
+                        <img className='icon' src='public/linkedin.png' alt="linkedin" />
                       </a>
                     }
                     {
                       data.telegram &&
                       <a href={`https://t.me/${data.telegram}`} target='_blank' className='icon-link' >
-                        <img className='icon' src={telegram} alt="telegram" />
+                        <img className='icon' src='public/telegram.png' alt="telegram" />
                       </a>
                     }
                   </td>
