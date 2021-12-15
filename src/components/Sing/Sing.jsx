@@ -38,31 +38,31 @@ const Sign = ({ data }) => <>
                     {
                       data.mobile &&
                       <a href={`tel:${data.mobile}`} target='_blank' className='icon-link' >
-                        <img src={call} alt="github" />
+                        <img className='icon' src={call} alt="github" />
                       </a>
                     }
                     {
                       data.web &&
                       <a href={data.web} target='_blank' className='icon-link' >
-                        <img src={web} alt="github" />
+                        <img className='icon' src={web} alt="github" />
                       </a>
                     }
                     {
                       data.github &&
                       <a href={`https://github.com/${data.github}`} target='_blank' className='icon-link' >
-                        <img src={github} alt="github" />
+                        <img className='icon' src={github} alt="github" />
                       </a>
                     }
                     {
                       data.linkedin &&
                       <a href={`https://www.linkedin.com/in/${data.linkedin}/`} target='_blank' className='icon-link' >
-                        <img src={linkedin} alt="linkedin" />
+                        <img className='icon' src={linkedin} alt="linkedin" />
                       </a>
                     }
                     {
                       data.telegram &&
                       <a href={`https://t.me/${data.telegram}`} target='_blank' className='icon-link' >
-                        <img src={telegram} alt="telegram" />
+                        <img className='icon' src={telegram} alt="telegram" />
                       </a>
                     }
                   </td>
