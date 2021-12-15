@@ -1,11 +1,11 @@
 import Sign from "./components/Sing"
 import useInput from './hooks/useInput'
+import styles from './App.module.css'
 
 const App = () => {
 
   const primaryColor = useInput('#1F2937')
   const secondaryColor = useInput('#6B7280')
-
 
   const image = useInput()
 
@@ -19,78 +19,45 @@ const App = () => {
   const web = useInput()
   const mobile = useInput()
 
+  const copytoClipboard = () => {
+    const r = document.createRange();
+    const signature = document.getElementById('signature');
+    r.selectNode(signature);
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(r);
+    document.execCommand('copy');
+    window.getSelection().removeAllRanges();
+  }
+
   return <>
-    <div style={{ height: '100%', display: 'flex' }} >
-      <div style={{
-        paddingTop: '1.25rem',
-        padding: '1.25rem',
-        borderColor: 'rgb(209 213 219)',
-        borderRightWidth: '1px',
-        borderStyle: 'solid',
-      }} >
+    <div className={styles.main} >
+      <div className={styles.sideBar} >
+        <button className={styles.copyButton} onClick={copytoClipboard}>Copy Signature</button>
         <form onSubmit={(e) => e.preventDefault()}>
           <p style={{ fontWeight: '700' }}>Colors</p>
           <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-            <label style={{ display: 'block', fontWeight: '700' }} htmlFor="PrimaryColor">
+            <label className={styles.labelForm} htmlFor="PrimaryColor">
               Primary
-              <input style={{
-                display: 'block',
-                borderWidth: '1px',
-                borderRadius: '0.25rem',
-                marginBottom: '0.5rem',
-                paddingLeft: '0.5rem',
-                paddingRight: '0.5rem',
-              }} type="color" {...primaryColor} />
+              <input className={styles.inputColor} type="color" {...primaryColor} />
             </label>
 
-            <label style={{ display: 'block', fontWeight: '700' }} htmlFor="SecondaryColor">
+            <label className={styles.labelForm} htmlFor="SecondaryColor">
               Secondary
-              <input style={{
-                display: 'block',
-                borderWidth: '1px',
-                borderRadius: '0.25rem',
-                marginBottom: '0.5rem',
-                paddingLeft: '0.5rem',
-                paddingRight: '0.5rem',
-              }} id="SecondaryColor" type="color" {...secondaryColor} />
+              <input className={styles.inputColor} id="SecondaryColor" type="color" {...secondaryColor} />
             </label>
           </div>
 
-          <label style={{ display: 'block', fontWeight: '700' }} htmlFor="Image">Image</label>
-          <input id="Image" style={{
-            paddingLeft: '0.5rem',
-            paddingRight: '0.5rem',
-            borderWidth: '1px',
-            borderRadius: '0.25rem',
-            marginBottom: '0.5rem',
-          }} type="text" {...image} />
+          <label className={styles.labelForm} htmlFor="Image">Image</label>
+          <input id="Image" className={styles.inputForm} type="text" {...image} />
 
-          <label style={{ display: 'block', fontWeight: '700' }} htmlFor="Name">Name</label>
-          <input id="Name" style={{
-            paddingLeft: '0.5rem',
-            paddingRight: '0.5rem',
-            borderWidth: '1px',
-            borderRadius: '0.25rem',
-            marginBottom: '0.5rem',
-          }} type="text" {...name} />
+          <label className={styles.labelForm} htmlFor="Name">Name</label>
+          <input id="Name" className={styles.inputForm} type="text" {...name} />
 
-          <label style={{ display: 'block', fontWeight: '700' }} htmlFor="Company">Company</label>
-          <input id="Company" style={{
-            paddingLeft: '0.5rem',
-            paddingRight: '0.5rem',
-            borderWidth: '1px',
-            borderRadius: '0.25rem',
-            marginBottom: '0.5rem',
-          }} type="text" {...company} />
+          <label className={styles.labelForm} htmlFor="Company">Company</label>
+          <input id="Company" className={styles.inputForm} type="text" {...company} />
 
-          <label style={{ display: 'block', fontWeight: '700' }} htmlFor="Title">Title</label>
-          <input id="Title" style={{
-            paddingLeft: '0.5rem',
-            paddingRight: '0.5rem',
-            borderWidth: '1px',
-            borderRadius: '0.25rem',
-            marginBottom: '0.5rem',
-          }} type="text" {...title} />
+          <label className={styles.labelForm} htmlFor="Title">Title</label>
+          <input id="Title" className={styles.inputForm} type="text" {...title} />
         </form>
         <p style={{
           fontWeight: '700',
@@ -99,58 +66,23 @@ const App = () => {
           marginBottom: '0.5rem',
         }} className="font-bold text-xl mb-2">EXTRAS</p>
         <form id="Extras" onSubmit={(e) => e.preventDefault()}>
-          <label style={{ display: 'block', fontWeight: '700' }} htmlFor="Web">Web</label>
-          <input id="Web" style={{
-            paddingLeft: '0.5rem',
-            paddingRight: '0.5rem',
-            borderWidth: '1px',
-            borderRadius: '0.25rem',
-            marginBottom: '0.5rem',
-          }} type="text" {...web} />
+          <label className={styles.labelForm} htmlFor="Web">Web</label>
+          <input id="Web" className={styles.inputForm} type="text" {...web} />
 
-          <label style={{ display: 'block', fontWeight: '700' }} htmlFor="Mobile">Mobile</label>
-          <input id="Mobile" style={{
-            paddingLeft: '0.5rem',
-            paddingRight: '0.5rem',
-            borderWidth: '1px',
-            borderRadius: '0.25rem',
-            marginBottom: '0.5rem',
-          }} type="text" {...mobile} />
+          <label className={styles.labelForm} htmlFor="Mobile">Mobile</label>
+          <input id="Mobile" className={styles.inputForm} type="text" {...mobile} />
 
-          <label style={{ display: 'block', fontWeight: '700' }} htmlFor="Github">Github</label>
-          <input id="Github" style={{
-            paddingLeft: '0.5rem',
-            paddingRight: '0.5rem',
-            borderWidth: '1px',
-            borderRadius: '0.25rem',
-            marginBottom: '0.5rem',
-          }} type="text" {...github} />
+          <label className={styles.labelForm} htmlFor="Github">Github</label>
+          <input id="Github" className={styles.inputForm} type="text" {...github} />
 
-          <label style={{ display: 'block', fontWeight: '700' }} htmlFor="Linkedin">Linkedin</label>
-          <input id="Linkedin" style={{
-            paddingLeft: '0.5rem',
-            paddingRight: '0.5rem',
-            borderWidth: '1px',
-            borderRadius: '0.25rem',
-            marginBottom: '0.5rem',
-          }} type="text" {...linkedin} />
+          <label className={styles.labelForm} htmlFor="Linkedin">Linkedin</label>
+          <input id="Linkedin" className={styles.inputForm} type="text" {...linkedin} />
 
-          <label style={{ display: 'block', fontWeight: '700' }} htmlFor="Telegram">Telegram</label>
-          <input id="Telegram" style={{
-            paddingLeft: '0.5rem',
-            paddingRight: '0.5rem',
-            borderWidth: '1px',
-            borderRadius: '0.25rem',
-            marginBottom: '0.5rem',
-          }} type="text" {...telegram} />
+          <label className={styles.labelForm} htmlFor="Telegram">Telegram</label>
+          <input id="Telegram" className={styles.inputForm} type="text" {...telegram} />
         </form>
       </div>
-      <div style={{
-        height: '100%',
-        display: 'grid',
-        flexGrow: '1',
-        placeContent: 'center',
-      }} >
+      <div className={styles.container} >
         <Sign data={{
           image: image.value,
           name: name.value,

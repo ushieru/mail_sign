@@ -1,14 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import MainLayout from './layout/MainLayout'
+import Layout from './components/Layout'
 import App from './App'
 
 ReactDOM.render(
   <React.StrictMode>
-    <MainLayout>
+    <Layout>
       <App />
-    </MainLayout>
+    </Layout>
   </React.StrictMode>,
   document.getElementById('root')
 )
