@@ -4,6 +4,7 @@
 }
 
 .sideBar {
+    width: 200px;
     padding-top: 1.25rem;
     padding: 1.25rem;
     border-width: 0 1px 0 0;
@@ -13,6 +14,7 @@
 
 .copyButton {
     width: 100%;
+    margin-bottom: 20px;
 }
 
 .labelForm {
@@ -41,4 +43,41 @@
     display: grid;
     flex-grow: 1;
     place-content: center;
+}
+
+.extrasTitle {
+    position: relative;
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.extrasButton {
+    margin-left: 20px;
+}
+
+.extrasMenu {
+    position: absolute;
+    margin-top: 35px;
+    top: 0;
+    right: 1px;
+    padding: 10px;
+    top: 0;
+    left: 0;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(209 213 219);
+    border-radius: 0.25rem;
+    background-color: #ffffff;
+}
+
+.extrasMenuButton {
+    margin-right: 5px;
+    padding: 0 2px 0 2px;
+}
+
+.extraInputButton {
+    margin-left: 3px;
+    padding: 0 2px 0 2px;
 }
