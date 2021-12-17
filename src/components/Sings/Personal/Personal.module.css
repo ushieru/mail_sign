@@ -1,4 +1,4 @@
-.main-table {
+.mainTable {
     border-collapse: collapse;
     border-radius: 0.25rem;
     overflow: hidden;
@@ -7,32 +7,31 @@
     width: 300px;
 }
 
-.image-layout {
+.imageLayout {
     width: 90px;
     border-color: rgb(209, 213, 219);
     border-width: 1px 0 1px 1px;
     border-style: solid;
+    text-align: center;
 }
 
-.profile-image {
+.profileImage {
     background-size: cover;
     border-radius: 9999px;
     width: 80px;
     height: 80px;
     margin: auto;
-    margin: 0 8px 0 8px;
 }
 
-.profile-image-skeleton {
+.profileImageSkeleton {
     background-color: gray;
     border-radius: 9999px;
     width: 80px;
     height: 80px;
     margin: auto;
-    margin: 0 8px 0 8px;
 }
 
-.container-layout {
+.containerLayout {
     width: 210px;
     padding: 0 12px 0 0;
     border-color: rgb(209, 213, 219);
@@ -51,16 +50,14 @@
     line-height: 1.3rem;
     font-size: 1.125rem;
     font-weight: 700;
-    margin: 0;
 }
 
-.secondary-text {
+.secondaryText {
     line-height: 1.3rem;
     font-weight: 500;
-    margin: 0;
 }
 
-.icon-link {
+.iconLink {
     display: inline-block;
     width: 24px;
     height: 24px;

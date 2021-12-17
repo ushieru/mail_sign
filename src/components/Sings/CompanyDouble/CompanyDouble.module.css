@@ -1,0 +1,89 @@
+.mainTable {
+    border-collapse: collapse;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    table-layout: fixed;
+    height: 120px;
+    width: 300px;
+}
+
+.separator {
+    background: rgb(209, 213, 219);
+    height: 90%;
+}
+
+.tdContainerL {
+    width: 149px;
+    border-color: rgb(209, 213, 219);
+    border-width: 1px 0 1px 1px;
+    border-style: solid;
+}
+
+.tdContainerC {
+    width: 2px;
+    border-color: rgb(209, 213, 219);
+    border-width: 1px 0 1px 0;
+    border-style: solid;
+}
+
+.tdContainerR {
+    width: 149px;
+    border-color: rgb(209, 213, 219);
+    border-width: 1px 1px 1px 0;
+    border-style: solid;
+}
+
+.tableInTdContainer {
+    height: 120px;
+    width: 149px;
+}
+
+.companyImageContain {
+    height: 100%;
+}
+
+.companyImageSkeleton {
+    height: 100px;
+    width: 100px;
+    background-color: gray;
+    border-radius: 9999px;
+    margin: auto;
+}
+
+.profileImageSkeleton {
+    height: 90px;
+    width: 90px;
+    background-color: gray;
+    border-radius: 9999px;
+    margin: auto;
+}
+
+.companyImage {
+    background-size: cover;
+    height: 100px;
+    width: 100px;
+    border-radius: 9999px;
+    margin: auto;
+}
+
+.profileImage {
+    background-size: cover;
+    height: 90px;
+    width: 90px;
+    border-radius: 9999px;
+    margin: auto;
+}
+
+.name {
+    margin-top: 5px;
+    line-height: 1rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+.title {
+    line-height: 1rem;
+    color: rgb(107, 114, 128);
+    font-size: .9rem;
+    font-weight: 500;
+}

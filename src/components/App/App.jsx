@@ -1,16 +1,17 @@
-import { useEffect, useState } from "react"
-import Sign from "../Sings/Small"
-import useInput from '../../hooks/useInput'
+import { useState } from "react"
+import { useRoute } from 'wouter'
 import styles from './App.module.css'
-import { OPTIONS } from './../../models/options'
+
+import Personal, { personalExtras, personalRequired } from "../Sings/Personal"
+import CompanyDouble, { doubleExtras, doubleRequired } from "../Sings/CompanyDouble"
 
 const App = () => {
+  const [_match, params] = useRoute("/:sign");
+
   const [showExtrasMenu, setShowExtrasMenu] = useState(false)
 
-  const image = useInput()
-  const name = useInput('Name Test')
-  const company = useInput('Company Test')
-  const title = useInput('Title Test')
+  const [requiredOptions, setRequiredOptions] = useState([])
+  const [extrasOptions, setExtrasOptions] = useState([])
 
   const [extras, setExtras] = useState([])
 
@@ -41,65 +42,87 @@ const App = () => {
     setExtras(_ => [...newExtras])
   }
 
-  return <>
-    <div className={styles.main} >
-      <div className={styles.sideBar} >
-        <button className={styles.copyButton} onClick={copytoClipboard}>Copy Signature</button>
-        <form onSubmit={(e) => e.preventDefault()}>
-          {/* <p style={{ fontWeight: '700' }}>Colors</p>
-          <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-            <label className={styles.labelForm} htmlFor="PrimaryColor">
-              Primary
-              <input className={styles.inputColor} type="color" {...primaryColor} />
-            </label>
+  const onChangeValueRequired = (requiredName, value) => {
+    const newRequired = requiredOptions.map(option => {
+      if (option.name == requiredName)
+        option.value = value
+      return option
+    })
+    console.log(newRequired);
+    setRequiredOptions(_ => [...newRequired])
+  }
 
-            <label className={styles.labelForm} htmlFor="SecondaryColor">
-              Secondary
-              <input className={styles.inputColor} id="SecondaryColor" type="color" {...secondaryColor} />
-            </label>
-          </div> */}
-
-          <label className={styles.labelForm} htmlFor="Image">Image</label>
-          <input id="Image" className={styles.inputForm} type="text" {...image} />
-
-          <label className={styles.labelForm} htmlFor="Name">Name</label>
-          <input id="Name" className={styles.inputForm} type="text" {...name} />
-
-          <label className={styles.labelForm} htmlFor="Company">Company</label>
-          <input id="Company" className={styles.inputForm} type="text" {...company} />
-
-          <label className={styles.labelForm} htmlFor="Title">Title</label>
-          <input id="Title" className={styles.inputForm} type="text" {...title} />
-        </form>
-        <p className={styles.extrasTitle}>
-          EXTRAS
-          <button onClick={() => setShowExtrasMenu(prev => !prev)} className={styles.extrasButton}>Add</button>
-          <div style={showExtrasMenu ? {} : { display: 'none' }} className={styles.extrasMenu}>
-            {
-              OPTIONS
-                .filter(option => !extras.find(extra => extra.name == option.name))
-                .map(option => <button onClick={() => addExtra(option)} className={styles.extrasMenuButton}>{option.name}</button>)
-            }
-          </div>
-        </p>
-        <form id="Extras" onSubmit={(e) => e.preventDefault()}>
-          {
-            extras.map(extra => <>
-              <label className={styles.labelForm} htmlFor={extra.name}>{extra.name}</label>
-              <input id={extra.name} className={styles.inputForm} type="text" value={extra.value} onChange={(e) => onChangeValueExtra(extra.name, e.target.value)} />
-              <button className={styles.extraInputButton} onClick={() => deleteExtra(extra)}>x</button>
-            </>)
-          }
-        </form>
-      </div>
-      <div className={styles.container} >
-        <Sign data={{
+  const getSign = (sign) => {
+    switch (sign) {
+      case 'personal':
+        if (!requiredOptions.length) {
+          setExtrasOptions(_ => personalExtras)
+          setRequiredOptions(_ => personalRequired)
+        }
+        return <Personal data={{
+          personalRequired,
+          extras
+        }} />
+      case 'company-double':
+        if (!requiredOptions.length) {
+          setExtrasOptions(_ => doubleExtras)
+          setRequiredOptions(_ => doubleRequired)
+        }
+        return <CompanyDouble data={{
+          doubleRequired,
+          extras
+        }} />
+      default:
+        return <Personal data={{
           image: image.value,
           name: name.value,
           company: company.value,
           title: title.value,
           extras
         }} />
+    }
+  }
+
+  return <>
+    <div className={styles.main} >
+      <div className={styles.sideBar} >
+        <button className={styles.copyButton} onClick={copytoClipboard}>Copy Signature</button>
+        <form onSubmit={(e) => e.preventDefault()}>
+          {
+            requiredOptions.map(option => <>
+              <label className={styles.labelForm} htmlFor={option.name}>{option.name}</label>
+              <input id={option.name} className={styles.inputForm} type={option.type ?? 'text'} value={option.value} onChange={(e) => onChangeValueRequired(option.name, e.target.value)} />
+            </>)
+          }
+        </form>
+        {
+          extrasOptions.length > 0 &&
+          <>
+            <p className={styles.extrasTitle}>
+              EXTRAS
+              <button onClick={() => setShowExtrasMenu(prev => !prev)} className={styles.extrasButton}>Add</button>
+              <div style={showExtrasMenu ? {} : { display: 'none' }} className={styles.extrasMenu}>
+                {
+                  extrasOptions
+                    .filter(option => !extras.find(extra => extra.name == option.name))
+                    .map(option => <button onClick={() => addExtra(option)} className={styles.extrasMenuButton}>{option.name}</button>)
+                }
+              </div>
+            </p>
+            <form id="Extras" onSubmit={(e) => e.preventDefault()}>
+              {
+                extras.map(extra => <>
+                  <label className={styles.labelForm} htmlFor={extra.name}>{extra.name}</label>
+                  <input id={extra.name} className={styles.inputForm} type="text" value={extra.value} onChange={(e) => onChangeValueExtra(extra.name, e.target.value)} />
+                  <button className={styles.extraInputButton} onClick={() => deleteExtra(extra)}>x</button>
+                </>)
+              }
+            </form>
+          </>
+        }
+      </div>
+      <div className={styles.container} >
+        {getSign(params.sign)}
       </div>
     </div >
   </>

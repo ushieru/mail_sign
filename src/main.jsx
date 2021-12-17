@@ -4,16 +4,17 @@ import { Route, Switch } from "wouter";
 import './index.css'
 import Layout from './components/Layout'
 import App from './components/App'
+import Welcome from './components/Welcome'
 
 ReactDOM.render(
   <React.StrictMode>
     <Layout>
       <Switch>
-        <Route path='/'>Hello!</Route>
-        <Route path='/:id' component={App} />
+        <Route path='/' component={Welcome} />
+        <Route path='/:sign' component={App} />
         <Route>404, Not Found!</Route>
       </Switch>
     </Layout>
-  </React.StrictMode>,
+  </React.StrictMode >,
   document.getElementById('root')
 )
