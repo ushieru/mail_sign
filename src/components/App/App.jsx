@@ -4,6 +4,7 @@ import styles from './App.module.css'
 
 import Personal, { personalExtras, personalRequired } from "../Sings/Personal"
 import CompanyDouble, { doubleExtras, doubleRequired } from "../Sings/CompanyDouble"
+import CompanySimple, { companySimpleExtras, companySimpleRequired } from '../Sings/CompanySimple'
 
 const App = () => {
   const [_match, params] = useRoute("/:sign");
@@ -72,12 +73,22 @@ const App = () => {
           doubleRequired,
           extras
         }} />
+      case 'company-simple':
+        if (!requiredOptions.length) {
+          setExtrasOptions(_ => companySimpleExtras)
+          setRequiredOptions(_ => companySimpleRequired)
+        }
+        return <CompanySimple data={{
+          companySimpleRequired,
+          extras
+        }} />
       default:
+        if (!requiredOptions.length) {
+          setExtrasOptions(_ => personalExtras)
+          setRequiredOptions(_ => personalRequired)
+        }
         return <Personal data={{
-          image: image.value,
-          name: name.value,
-          company: company.value,
-          title: title.value,
+          personalRequired,
           extras
         }} />
     }
@@ -114,7 +125,7 @@ const App = () => {
                 extras.map(extra => <>
                   <label className={styles.labelForm} htmlFor={extra.name}>{extra.name}</label>
                   <input id={extra.name} className={styles.inputForm} type="text" value={extra.value} onChange={(e) => onChangeValueExtra(extra.name, e.target.value)} />
-                  <button className={styles.extraInputButton} onClick={() => deleteExtra(extra)}>x</button>
+                  <button className={styles.deleteButton} onClick={() => deleteExtra(extra)}>x</button>
                 </>)
               }
             </form>
