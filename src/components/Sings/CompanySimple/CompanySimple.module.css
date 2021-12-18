@@ -1,0 +1,80 @@
+.mainTable {
+    border-collapse: collapse;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    table-layout: fixed;
+    height: 120px;
+    width: 300px;
+}
+
+.separator {
+    background: rgb(209, 213, 219);
+    height: 90%;
+}
+
+.tdContainerL {
+    width: 109px;
+    border-color: rgb(209, 213, 219);
+    border-width: 1px 0 1px 1px;
+    border-style: solid;
+}
+
+.tdContainerC {
+    width: 2px;
+    border-color: rgb(209, 213, 219);
+    border-width: 1px 0 1px 0;
+    border-style: solid;
+}
+
+.tdContainerR {
+    width: 189px;
+    border-color: rgb(209, 213, 219);
+    border-width: 1px 1px 1px 0;
+    border-style: solid;
+}
+
+.tableInTdContainerL {
+    height: 120px;
+    width: 109px;
+    margin: auto;
+}
+
+.tableInTdContainerR {
+    height: 120px;
+    width: 189px;
+    margin: auto;
+}
+
+.companyImageContain {
+    height: 100%;
+}
+
+.companyImageSkeleton {
+    height: 100px;
+    width: 100px;
+    background-color: gray;
+    border-radius: 9999px;
+    margin: auto;
+}
+
+.companyImage {
+    background-size: cover;
+    height: 100px;
+    width: 100px;
+    border-radius: 9999px;
+    margin: auto;
+}
+
+.name {
+    margin: 5px 0 5px 0;
+    line-height: 1.2rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+.title {
+    line-height: 1.2rem;
+    color: rgb(107, 114, 128);
+    font-size: 1rem;
+    font-weight: 500;
+}
