@@ -12,7 +12,7 @@ const Welcome = () => {
                     <img className={styles.imageTemplate} src="/company-double-test.png" alt="company-double-test" />
                 </a>
                 <a href="/company-simple">
-                    <div style={{ display: 'inline-block', backgroundColor: 'gray' }} className={styles.imageTemplate} />
+                    <img className={styles.imageTemplate} src="/company-simple-test.png" alt="company-simple-test" />
                 </a>
             </div>
         </div>

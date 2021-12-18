@@ -12,10 +12,9 @@ const CompanySimple = ({ data }) => {
                         <tr>
                             <td style={{ textAlign: 'center' }}>
                                 {
-                                    getRequired('Company Image') ?
+                                    getRequired('Image') ?
                                         <a style={{ textDecoration: 'none' }} target='_blank' href={getRequired('Company URL')}>
-                                            <img className={styles.companyImage} src={getRequired('Company Image')} alt="Profile" />
-                                            <p style={{ fontWeight: '700', color: getRequired('Company Color') ?? 'black' }}>{getRequired('Company Name')}</p>
+                                            <img className={styles.companyImage} src={getRequired('Image')} alt="Profile" />
                                         </a> :
                                         <div className={styles.companyImageSkeleton} />
                                 }
