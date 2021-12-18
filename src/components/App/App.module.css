@@ -17,6 +17,17 @@
     margin-bottom: 20px;
 }
 
+.deleteButton {
+    background-color: #f44242;
+    border-color: #f51818;
+    margin-left: 3px;
+    padding: 0 2px 0 2px;
+}
+
+.deleteButton:active {
+    background-color: #f51818;
+}
+
 .labelForm {
     display: block;
     font-weight: 700;
@@ -50,7 +61,10 @@
     font-weight: 700;
     font-size: 1.25rem;
     line-height: 1.75rem;
-    margin-bottom: 0.5rem;
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .extrasButton {
@@ -60,11 +74,9 @@
 .extrasMenu {
     position: absolute;
     margin-top: 35px;
-    top: 0;
-    right: 1px;
     padding: 10px;
-    top: 0;
-    left: 0;
+        top: -35px;
+    left: 179px;
     border-width: 1px;
     border-style: solid;
     border-color: rgb(209 213 219);
@@ -74,10 +86,5 @@
 
 .extrasMenuButton {
     margin-right: 5px;
-    padding: 0 2px 0 2px;
-}
-
-.extraInputButton {
-    margin-left: 3px;
     padding: 0 2px 0 2px;
 }
