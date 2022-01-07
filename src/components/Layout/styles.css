@@ -8,10 +8,21 @@
     display: flex;
     align-items: center;
     height: .75rem;
-    padding: 2.5rem;
+    padding: 1.5rem;
     border-width: 0 0 1px 0;
     border-style: solid;
     border-color: rgb(209, 213, 219);
+}
+
+.link {
+    color: black;
+    text-decoration: none;
+    margin-left: 30px;
+}
+
+.link:hover {
+    font-weight: bold;
+    color: rgb(78, 77, 77);
 }
 
 .mail-sign {

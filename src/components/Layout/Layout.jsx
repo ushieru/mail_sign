@@ -6,6 +6,9 @@ const Layout = ({ children }) => <>
             <a className='mail-sign' href="/">
                 MailSign
             </a>
+            <a className='link' href="/howtouse" >
+                how to use?
+            </a>
         </nav>
         <main className='main'>
             {children}
