@@ -123,9 +123,14 @@ const App = () => {
             <form id="Extras" onSubmit={(e) => e.preventDefault()}>
               {
                 extras.map(extra => <>
-                  <label className={styles.labelForm} htmlFor={extra.name}>{extra.name}</label>
-                  <input id={extra.name} className={styles.inputForm} type="text" value={extra.value} onChange={(e) => onChangeValueExtra(extra.name, e.target.value)} />
-                  <button className={styles.deleteButton} onClick={() => deleteExtra(extra)}>x</button>
+                  <label className={styles.labelForm} htmlFor={extra.name}>
+                    {extra.name}
+                  </label>
+                  <div style={{ display: 'flex' }}>
+                    <input id={extra.name} className={styles.inputForm} type="text" value={extra.value} onChange={(e) => onChangeValueExtra(extra.name, e.target.value)} />
+                    <button className={styles.deleteButton} onClick={() => deleteExtra(extra)}>x</button>
+                  </div>
+                  <p style={{ fontSize: '12px' }}>{extra.href(extra.value)}</p>
                 </>)
               }
             </form>
