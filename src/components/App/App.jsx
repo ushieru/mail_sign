@@ -3,6 +3,7 @@ import { useRoute } from 'wouter'
 import styles from './App.module.css'
 
 import Personal, { personalExtras, personalRequired } from "../Sings/Personal"
+import PersonalSimple, { personalSimpleExtras, personalSimpleRequired } from '../Sings/PersonalSimple'
 import CompanyDouble, { doubleExtras, doubleRequired } from "../Sings/CompanyDouble"
 import CompanySimple, { companySimpleExtras, companySimpleRequired } from '../Sings/CompanySimple'
 
@@ -49,7 +50,6 @@ const App = () => {
         option.value = value
       return option
     })
-    console.log(newRequired);
     setRequiredOptions(_ => [...newRequired])
   }
 
@@ -62,6 +62,15 @@ const App = () => {
         }
         return <Personal data={{
           personalRequired,
+          extras
+        }} />
+      case 'personal-simple':
+        if (!requiredOptions.length) {
+          setExtrasOptions(_ => personalSimpleExtras)
+          setRequiredOptions(_ => personalSimpleRequired)
+        }
+        return <PersonalSimple data={{
+          personalSimpleRequired,
           extras
         }} />
       case 'company-double':

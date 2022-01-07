@@ -5,6 +5,9 @@ const Welcome = () => {
         <div className={styles.mainContainer}>
             <p className={styles.title}>Templates:</p>
             <div className={styles.templateContainer}>
+                <a href="/personal-simple">
+                    <img className={styles.imageTemplate} src="/personal-simple-test.png" alt="personal-simple-test" />
+                </a>
                 <a href="/personal">
                     <img className={styles.imageTemplate} src="/personal-test.png" alt="personal-test" />
                 </a>
